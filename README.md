@@ -1,2 +1,2 @@
 # electron test
-- bootstrap DashBoard UI 적용
+- bootstra SB Admin(DashBoard) UI 적용
