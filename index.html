@@ -47,10 +47,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">chacanks</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
+
+              <!--
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
@@ -149,6 +151,8 @@
                         </li>
                     </ul>
                 </li>
+              -->
+
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -157,28 +161,18 @@
                         <a href="index.html"><i class="fa fa-fw fa-check"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-check"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-check"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-check"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-check"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-check"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-check"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#drop-report"><i class="fa fa-fw fa-check"></i> Report <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="drop-report" class="collapse">
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="#">CapturePage</a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#drop-utils"><i class="fa fa-fw fa-check"></i> Utils <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="drop-utils" class="collapse">
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="#">Excel->NeDB</a>
                             </li>
                         </ul>
                     </li>
@@ -235,6 +229,11 @@
 
     <script type="text/javascript">
       window.$ = window.jQuery = require('./assets/js/jquery.js');
+      var a = require('./app/renderer.js');
+
+      console.log('1')
+      a();
+            console.log('2')
     </script>
 
     <!-- Bootstrap Core JavaScript -->
