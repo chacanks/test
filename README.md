@@ -12,6 +12,3 @@
 
 # electron test
 - bootstrap SB Admin(DashBoard) UI 적용
-
-
-master

@@ -144,16 +144,16 @@
 
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <div id="public-menu" class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="#"><i class="fa fa-fw fa-check"></i> Dashboard</a>
+                        <a href="#" data-section="dashBoard"><i class="fa fa-fw fa-check"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#drop-report"><i class="fa fa-fw fa-check"></i> Report <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="drop-report" class="collapse">
                             <li>
-                                <a href="#">CapturePage</a>
+                                <a href="#" data-section="capturePage">CapturePage</a>
                             </li>
                         </ul>
                     </li>
@@ -161,15 +161,15 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#drop-utils"><i class="fa fa-fw fa-check"></i> Utils <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="drop-utils" class="collapse">
                             <li>
-                                <a href="#">Excel->NeDB</a>
+                                <a href="#" data-section="excel2NeDB">Excel->NeDB</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-check"></i> Blank Page</a>
+                        <a href="#" data-section="blackPage"><i class="fa fa-fw fa-check"></i> Blank Page</a>
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-check"></i> RTL Dashboard</a>
+                        <a href="#" data-section="rtl"><i class="fa fa-fw fa-check"></i> RTL Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -221,6 +221,23 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="assets/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+      var showMeneSection = function(sectionName){
+        console.log('sectionName = '+ sectionName)
+      };
+
+
+
+      $('#public-menu a[data-section]').on({
+        'click' : (e) =>{
+          var sectionName = $(e.target).attr('data-section')
+          showMeneSection(sectionName)
+        }
+      });
+
+
+    </script>
 
 </body>
 
