@@ -1,14 +1,6 @@
-[StimPack]
 
-# 폴더
- - assets
-	- css
- 	- font-awesome
- 	- img
- 	- js
- - data
- 	- db
- 	- dictionary
+UI
+ - https://startbootstrap.com/template-overviews/sb-admin/
 
-# electron test
-- bootstrap SB Admin(DashBoard) UI 적용
+ICON
+ - http://fontawesome.io/
