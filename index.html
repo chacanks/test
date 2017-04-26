@@ -14,13 +14,17 @@
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- sb-admin Custom CSS -->
     <link href="assets/css/sb-admin.css" rel="stylesheet">
+
+    <!-- user Custom CSS -->
+    <link href="assets/css/user.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link rel="import" href="sections/testing/page-capture.html">
+    <link rel="import" href="sections/testing/table-comments.html">
 
 </head>
 
@@ -149,7 +153,7 @@
             <div id="public-menu" class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="#" data-section="dashBoard"><i class="fa fa-fw fa-check"></i> Dashboard</a>
+                        <a href="#" data-section="dashboard"><i class="fa fa-fw fa-check"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#drop-report"><i class="fa fa-fw fa-check"></i> Report <i class="fa fa-fw fa-caret-down"></i></a>
@@ -164,6 +168,7 @@
                         <ul id="drop-utils" class="collapse">
                             <li>
                                 <a href="#" data-section="excel2NeDB">Excel->NeDB</a>
+                                <a href="#" data-section="table-comments">Table Comments</a>
                             </li>
                         </ul>
                     </li>
@@ -178,33 +183,9 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper">
+        <div>
 
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div style="height:500px;">
-                          Contents AREA
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
+            <div id="page-wrapper" class="container-fluid">
 
 
             </div>
@@ -225,18 +206,51 @@
     <script src="assets/js/bootstrap.js"></script>
 
     <script type="text/javascript">
+
+      const links = document.querySelectorAll('link[rel="import"]')
+
+      // Template Import  !!!
+      Array.prototype.forEach.call(links, function (link) {
+        let template = link.import.querySelector('.menu-template')
+        let clone = document.importNode(template.content, true)
+
+        //전체 숨김
+        clone.querySelector('section').classList.add('no-display')
+
+        document.querySelector('#page-wrapper').appendChild(clone)
+
+        // if (link.href.match('about.html')) {
+        //   document.querySelector('body').appendChild(clone)
+        // } else {
+        //   document.querySelector('.content').appendChild(clone)
+        // }
+      })
+
+
       var showMeneSection = function(sectionName){
-        console.log('sectionName = ',sectionName + '-section')
+
+        //section 전체 숨김
+        $('#page-wrapper').find('section').hide();
+
+        //선택된 section 출력
+        var section = $('#' + sectionName + '-section')
+        section.show()
       };
 
 
-
+      /*
+      * 좌측 메뉴 선택시
+      */
       $('#public-menu a[data-section]').on({
         'click' : (e) =>{
           var sectionName = $(e.target).attr('data-section')
           showMeneSection(sectionName)
         }
       });
+
+      //default : table-comment
+      var firstShowTarget = 'table-comments'
+      showMeneSection( firstShowTarget );
 
 
     </script>
